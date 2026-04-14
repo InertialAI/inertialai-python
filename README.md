@@ -27,7 +27,7 @@ Create an API key in the [InertialAI app](https://app.inertialai.com) and expose
 an environment variable:
 
 ```bash
-export INERTIALAI_API_KEY="sk-..."
+export INERTIALAI_API_KEY="iai_..."
 ```
 
 The client reads `INERTIALAI_API_KEY` automatically. You can also pass it explicitly via
@@ -83,10 +83,10 @@ asyncio.run(main())
 
 Each `EmbeddingMultiModalInput` must contain at least one of:
 
-| Field         | Type                  | Description                                                                 |
-| ------------- | --------------------- | --------------------------------------------------------------------------- |
-| `time_series` | `list[list[float]]`   | Multi-channel signal. Outer list = channels, inner list = samples per channel. |
-| `text`        | `str`                 | Natural-language description to embed alongside (or instead of) the signal. |
+| Field         | Type                | Description                                                                    |
+| ------------- | ------------------- | ------------------------------------------------------------------------------ |
+| `time_series` | `list[list[float]]` | Multi-channel signal. Outer list = channels, inner list = samples per channel. |
+| `text`        | `str`               | Natural-language description to embed alongside (or instead of) the signal.    |
 
 You can batch many inputs in a single request by passing a list. Each returned
 `EmbeddingData` carries the `index` of its corresponding input.
@@ -97,7 +97,7 @@ You can batch many inputs in a single request by passing a list. Each returned
 from inertialai_python import InertialAI
 
 client = InertialAI(
-    api_key="sk-...",           # overrides INERTIALAI_API_KEY
+    api_key="iai_...",           # overrides INERTIALAI_API_KEY
     base_url="https://inertialai.com",
     timeout=30.0,               # seconds, or an httpx.Timeout instance
     max_retries=2,              # retries for transient errors (429, 5xx, network)
